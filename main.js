@@ -104,11 +104,10 @@ var names = [
     { name: "Jesse", almaMater: "University of Texas - Austin" }
 ];
 
-// YOUR CODE HERE --------
-
-
-
-// -----------------------
+names.sort(function(a, b){
+	if(a.name > b.name) return +1
+	if(a.name < b.name) return -1
+})
 
 console.assert(names[0].name === "Brian");
 console.assert(names[1].name === "Jesse");
@@ -123,17 +122,39 @@ console.assert(names[2].name === "Matt");
  */
 
 var customers = [
-    { first: 'Joe', last: 'Blogs'},
+    { first: 'Joe',  last: 'Blogs'},
     { first: 'John', last: 'Smith'},
     { first: 'Dave', last: 'Jones'},
     { first: 'Jack', last: 'White'}
 ];
 
-// YOUR CODE HERE --------
+var first = customers.filter(function(x) {
+return x.first[0] === 'J'
+})
 
+ var fullname = first.map(function(x){
+	return ({ fullname: x.first + ' ' + x.last})
+})
 
-
-// -----------------------
+var results = fullname.sort(function(a, b){
+	if(a.fullname > b.fullname) {
+		return +1
+	} 
+	if (a.fullname < b.fullname) {
+		return -1
+	} 
+	return 0;	
+})
 
 console.assert(results[0].fullname === "Jack White")
 console.assert(results[2].fullname === "John Smith")
+
+
+
+
+
+
+
+
+
+
